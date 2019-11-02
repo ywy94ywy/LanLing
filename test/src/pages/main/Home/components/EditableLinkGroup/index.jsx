@@ -25,7 +25,7 @@ class EditableLinkGroup extends PureComponent {
           ),
         )}
         {
-          <Button size="small" type="primary" ghost onClick={onAdd} icon="plus">
+          <Button  type="primary" onClick={onAdd}>
             添加
           </Button>
         }

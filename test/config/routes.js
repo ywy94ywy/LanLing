@@ -17,6 +17,7 @@ export default [
       {
         path: '/',
         component: '../layouts/BasicLayout',
+        title:'劳务实名管理系统',
         routes: [
           {
             path: '/',
@@ -29,7 +30,7 @@ export default [
             component: '../layouts/BlankLayout',
             routes: [
               {
-                name: '工作台',
+                name: '首页',
                 icon: 'smile',
                 path: '/main/home',
                 component: './main/Home',

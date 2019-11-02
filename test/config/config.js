@@ -1,7 +1,7 @@
-import defaultSettings from './defaultSettings'; 
+import defaultSettings from './defaultSettings';
 import slash from 'slash2';
 import webpackPlugin from './plugin.config';
-import routes from './routes'
+import routes from './routes';
 
 const { pwa, primaryColor } = defaultSettings; // preview.pro.ant.design only do not use in your production ;
 // preview.pro.ant.design 专用环境变量，请不要在你的项目中使用它。
@@ -74,9 +74,7 @@ export default {
     ie: 11,
   },
   devtool: isAntDesignProPreview ? 'source-map' : false,
-  // umi routes: https://umijs.org/zh/guide/router.html
   routes,
-  // Theme for antd: https://ant.design/docs/react/customize-theme-cn
   theme: {
     'primary-color': primaryColor,
   },
