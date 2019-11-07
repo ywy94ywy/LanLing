@@ -55,9 +55,7 @@ const PageHeaderContent = ({ currentUser }) => {
       </div>
       <div className={styles.content}>
         <div className={styles.contentTitle}>{currentUser.name}</div>
-        <div>
-          {currentUser.title} 
-        </div>
+        <div>{currentUser.title}</div>
       </div>
     </div>
   );
@@ -138,6 +136,7 @@ export default connect(({ mainAndHome: { currentUser }, loading }) => ({
           </Card>
         </Col>
       </Row>
+
     </PageHeaderWrapper>
   );
 });

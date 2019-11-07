@@ -1,47 +1,47 @@
 import { routerRedux } from 'dva/router';
 import { stringify } from 'querystring';
-import { fakeAccountLogin, getFakeCaptcha } from '@/services/login';
-import { setAuthority } from '@/utils/authority';
+import { fakeAccountLogin } from '@/services/login';
+import router from 'umi/router';
+// import { setAuthority } from '@/utils/authority';
 import { getPageQuery } from '@/utils/utils';
+
 const Model = {
   namespace: 'login',
   state: {
-    status: undefined,
+    currentUser: {},
   },
   effects: {
     *login({ payload }, { call, put }) {
       const response = yield call(fakeAccountLogin, payload);
+
       yield put({
-        type: 'changeLoginStatus',
+        type: 'changeLogin',
         payload: response,
       }); // Login successfully
 
-      if (response.status === 'ok') {
-        const urlParams = new URL(window.location.href);
-        const params = getPageQuery();
-        let { redirect } = params;
+      router.push('/');
+      // if (response.status === 'ok') {
+      //   const urlParams = new URL(window.location.href);
+      //   const params = getPageQuery();
+      //   let { redirect } = params;
 
-        if (redirect) {
-          const redirectUrlParams = new URL(redirect);
+      //   if (redirect) {
+      //     const redirectUrlParams = new URL(redirect);
 
-          if (redirectUrlParams.origin === urlParams.origin) {
-            redirect = redirect.substr(urlParams.origin.length);
+      //     if (redirectUrlParams.origin === urlParams.origin) {
+      //       redirect = redirect.substr(urlParams.origin.length);
 
-            if (redirect.match(/^\/.*#/)) {
-              redirect = redirect.substr(redirect.indexOf('#') + 1);
-            }
-          } else {
-            window.location.href = '/';
-            return;
-          }
-        }
+      //       if (redirect.match(/^\/.*#/)) {
+      //         redirect = redirect.substr(redirect.indexOf('#') + 1);
+      //       }
+      //     } else {
+      //       window.location.href = '/';
+      //       return;
+      //     }
+      //   }
 
-        yield put(routerRedux.replace(redirect || '/'));
-      }
-    },
-
-    *getCaptcha({ payload }, { call }) {
-      yield call(getFakeCaptcha, payload);
+      //   yield put(routerRedux.replace(redirect || '/'));
+      // }
     },
 
     *logout(_, { put }) {
@@ -60,9 +60,9 @@ const Model = {
     },
   },
   reducers: {
-    changeLoginStatus(state, { payload }) {
-      setAuthority(payload.currentAuthority);
-      return { ...state, status: payload.status, type: payload.type };
+    changeLogin(state, { payload }) {
+      // setAuthority(payload.currentAuthority);
+      return { ...state, currentUser: payload.currentUser };
     },
   },
 };

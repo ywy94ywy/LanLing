@@ -1,83 +1,47 @@
-import ProLayout, { getMenuData } from '@ant-design/pro-layout';
-import React, { useEffect, useState } from 'react';
-import Link from 'umi/link';
+import { BasicLayout, SystemsEntry, UserMenu } from '@/public/src';
 import { connect } from 'dva';
-import RightContent from '@/components/GlobalHeader/RightContent';
-import logo from '../assets/logo.svg';
+import logo from '@/assets/logo.png';
 
-// 获取atnd-pro扁平化菜单keys
-const getFlatMenuKeys = menuData => {
-  let keys = [];
-  menuData.forEach(item => {
-    if (!item) {
-      return;
-    }
-    keys.push(item.path);
-    if (item.children) {
-      keys = keys.concat(getFlatMenuKeys(item.children));
-    }
-  });
-  return keys;
-};
+const systems = [
+  {
+    icon: 'build',
+    title: '视频监控系统',
+    url: '/',
+  },
+  {
+    icon: 'skin',
+    title: '质量安全监管系统',
+    url: '/',
+  },
+  {
+    icon: 'smile',
+    title: '设备管理系统',
+    url: '/',
+  },
+  {
+    icon: 'skin',
+    title: '物料管理系统',
+    url: '/',
+  },
+  {
+    icon: 'skin',
+    title: '环境管理系统',
+    url: '/',
+  },
+];
 
-const BasicLayout = props => {
-  const {
-    dispatch,
-    children,
-    route: { title },
-  } = props;
-  const { menuData } = getMenuData(props.route.routes);
-  const [openKeys, setOpenKeys] = useState(getFlatMenuKeys(menuData));
-
-  useEffect(() => {
-    if (dispatch) {
-      dispatch({
-        type: 'user/fetchCurrent',
-      });
-      dispatch({
-        type: 'settings/getSetting',
-      });
-    }
-  }, []);
-
+export default connect(({ login }) => login)(props => {
+  const { children, currentUser } = props;
+  console.log(props);
   return (
-    <ProLayout
+    <BasicLayout
       logo={logo}
-      title={title}
-      headerRender={() => (
-        <>
-          主题
-          <RightContent />
-        </>
-      )}
-      menuItemRender={(menuItemProps, defaultDom) => {
-        if (menuItemProps.isUrl) {
-          return defaultDom;
-        }
-        return (
-          <Link
-            to={menuItemProps.path}
-          >
-            {defaultDom}
-          </Link>
-        );
-      }}
-      menuProps={{
-        openKeys,
-        onOpenChange(e) {
-          setOpenKeys(e);
-        },
-      }}
-      breadcrumbRender={(routers = []) => [...routers]}
-      itemRender={route => <span>{route.breadcrumbName}</span>}
-      disableMobile
+      title="劳务实名管理系统"
+      leftContent={<SystemsEntry data={systems}></SystemsEntry>}
+      rightContent={<UserMenu></UserMenu>}
       {...props}
     >
       {children}
-    </ProLayout>
+    </BasicLayout>
   );
-};
-
-export default connect(({ settings }) => ({
-  settings,
-}))(BasicLayout);
+});
