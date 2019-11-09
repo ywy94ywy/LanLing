@@ -7,7 +7,7 @@ import PageLoading from '@/components/PageLoading';
 export default connect()(props => {
   const { children, dispatch } = props;
   useEffect(() => {
-    dispatch();
+    // dispatch();
   }, []);
   console.log(props);
   return children;

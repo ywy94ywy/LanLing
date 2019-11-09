@@ -22,9 +22,9 @@ const getFlatMenuKeys = menuData => {
 };
 
 export default ({ children, leftContent = null, rightContent = null, ...rest }) => {
-  const { menuData } = getMenuData(rest.route.routes);
-  const [openKeys, setOpenKeys] = useState(getFlatMenuKeys(menuData));
-  const [bg, setBg] = useState(window.localStorage.theme || '#1c1f87');
+  const { menuData } = getMenuData(rest.route ? rest.route.routes : []);
+  const [openKeys, setOpenKeys] = useState(getFlatMenuKeys(menuData)); // 展开所有菜单
+  const [bg, setBg] = useState(window.localStorage.theme || '#1c1f87'); // 设置背景
   const Left = () => leftContent;
   const Right = () => rightContent;
 

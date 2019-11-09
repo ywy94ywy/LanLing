@@ -10,7 +10,7 @@ export default {
           componentUrl: './layouts/BlankLayout',
           routes: [
             {
-              name: 'home',
+              name: '首页',
               path: '/main/home',
               name: '首页',
               icon: 'smile',
