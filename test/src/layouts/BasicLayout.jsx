@@ -30,18 +30,19 @@ const systems = [
   },
 ];
 
-export default connect(({ login }) => login)(props => {
-  const { children, currentUser } = props;
-  console.log(props);
+export default props => {
+  const { children } = props;
+  const user = JSON.parse(sessionStorage.getItem('user'));
+
   return (
     <BasicLayout
       logo={logo}
       title="劳务实名管理系统"
       leftContent={<SystemsEntry data={systems}></SystemsEntry>}
-      rightContent={<UserMenu></UserMenu>}
+      rightContent={<UserMenu user={user}></UserMenu>}
       {...props}
     >
       {children}
     </BasicLayout>
   );
-});
+};

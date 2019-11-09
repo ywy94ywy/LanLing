@@ -2,9 +2,8 @@ import { Popover } from 'antd';
 import style from './index.less';
 import logo from '@/assets/logo.png';
 
-export default () => {
-  const userName = '贾亚军';
-  return (
+export default ({ user }) => {
+  return user ? (
     <span className={style.userMenu}>
       <Popover
         content={
@@ -18,10 +17,10 @@ export default () => {
         trigger="click"
       >
         <span className={style.imgClip}>
-          <img src={logo} alt="" />
+          <img src={user.avatar} alt="" />
         </span>
-        <span className={style.user}>{userName}</span>
+        <span className={style.user}>{user.name}</span>
       </Popover>
     </span>
-  );
+  ) : null;
 };

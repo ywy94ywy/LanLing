@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'dva';
 import { Redirect } from 'umi';
 import { stringify } from 'querystring';
 import PageLoading from '@/components/PageLoading';
+
+export default connect()(props => {
+  const { children, dispatch } = props;
+  useEffect(() => {
+    dispatch();
+  }, []);
+  console.log(props);
+  return children;
+});
 
 class SecurityLayout extends React.Component {
   state = {
@@ -43,8 +52,3 @@ class SecurityLayout extends React.Component {
     return children;
   }
 }
-
-export default connect(({ user, loading }) => ({
-  currentUser: user.currentUser,
-  loading: loading.models.user,
-}))(SecurityLayout);

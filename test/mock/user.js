@@ -41,7 +41,6 @@ export default {
       res.send({
         status: 'ok',
         type,
-        currentAuthority: 'admin',
         currentUser: {
           name: 'Serati Ma',
           avatar: 'https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png',

@@ -69,10 +69,13 @@ const ExtraContent = () => (
   </div>
 );
 
-export default connect(({ mainAndHome: { currentUser }, loading }) => ({
-  currentUser,
-  currentUserLoading: loading.effects['mainAndHome/fetchUserCurrent'],
-}))(({ currentUser, dispatch }) => {
+export default connect(() =>
+  // { mainAndHome: { currentUser }, loading }
+  ({
+    // currentUser,
+    // currentUserLoading: loading.effects['mainAndHome/fetchUserCurrent'],
+  }),
+)(({ dispatch }) => {
   useEffect(() => {
     dispatch({
       type: 'mainAndHome/init',
@@ -87,7 +90,7 @@ export default connect(({ mainAndHome: { currentUser }, loading }) => ({
   return (
     <PageHeaderWrapper
       title={false}
-      content={<PageHeaderContent currentUser={currentUser} />}
+      content={<PageHeaderContent />}
       extraContent={<ExtraContent />}
     >
       <Row gutter={24}>
@@ -136,7 +139,6 @@ export default connect(({ mainAndHome: { currentUser }, loading }) => ({
           </Card>
         </Col>
       </Row>
-
     </PageHeaderWrapper>
   );
 });

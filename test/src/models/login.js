@@ -13,12 +13,12 @@ const Model = {
   effects: {
     *login({ payload }, { call, put }) {
       const response = yield call(fakeAccountLogin, payload);
-
-      yield put({
-        type: 'changeLogin',
-        payload: response,
-      }); // Login successfully
-
+      const { currentUser } = response;
+      // yield put({
+      //   type: 'changeLogin',
+      //   payload: response,
+      // });
+      sessionStorage.setItem('user', JSON.stringify(currentUser));
       router.push('/');
       // if (response.status === 'ok') {
       //   const urlParams = new URL(window.location.href);
