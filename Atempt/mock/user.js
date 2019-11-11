@@ -1,60 +1,60 @@
 export default {
-  // 支持值为 Object 和 Array
   'Post /api/currentUser': (req, res) => {
     res.send({
       user: {
-        name: 'Serati Ma',
+        name: '贾亚军',
         avatar: 'https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png',
         userid: '00000001',
-        email: 'antdesign@alipay.com',
-        signature: '海纳百川，有容乃大',
-        title: '交互专家',
-        group: '蚂蚁金服－某某某事业群－某某平台部－某某技术部－UED',
+        post: '劳务管理员',
       },
       menu: [
         {
           path: '/main',
           name: '主页管理',
-          icon: 'smile',
+          iconfont: 'iconzhuye',
           routes: [
             {
               path: '/main/home',
               name: '首页',
-              icon: 'smile',
-              componentUrl: './pages/Home',
+              iconfont: 'iconshouye',
+              componentUrl: './pages/home',
             },
             {
               path: '/main/manual',
               name: '操作手册',
-              icon: 'smile',
-              componentUrl: './pages/Home',
+              iconfont: 'iconcaozuoshouce',
+              componentUrl: './pages/home',
             },
           ],
         },
         {
-          path: '/a',
-          name: 'aaaaa',
-          icon: 'crown',
+          path: '/user',
+          name: '用户管理',
+          iconfont: 'iconrenyuanguanli',
           routes: [
             {
-              path: '/a/b',
-              name: 'bbbb',
-              icon: 'skin',
-              componentUrl: './layouts/BlankLayout',
-              routes: [
-                {
-                  path: '/a/b/c',
-                  name: 'ccccc',
-                  icon: 'skin',
-                  componentUrl: './pages/Admin',
-                },
-                {
-                  path: '/a/b/d',
-                  name: 'dddd',
-                  icon: 'skin',
-                  componentUrl: './pages/Admin',
-                },
-              ],
+              path: '/user/info',
+              name: '用户信息管理',
+              iconfont: 'iconyonghuxinxiguanli',
+              componentUrl: './pages/home',
+            },
+            {
+              path: '/user/account',
+              name: '用户账号管理',
+              iconfont: 'iconyonghuzhanghaoguanli',
+              componentUrl: './pages/home',
+            },
+            {
+              path: '/user/auth',
+              name: '用户认证管理',
+              iconfont: 'iconyonghurenzhengguanli',
+              componentUrl: './pages/home',
+            },
+            {
+              path: '/user/license',
+              name: '用户执照管理',
+              iconfont: 'iconyonghuzhizhaoguanli',
+              componentUrl: './pages/home',
             },
           ],
         },
@@ -90,6 +90,7 @@ export default {
       path: '/base/category/list',
     });
   },
+
   'GET /api/404': (req, res) => {
     res.status(404).send({
       timestamp: 1513932643431,

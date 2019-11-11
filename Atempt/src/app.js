@@ -2,7 +2,7 @@ import { queryCurrent } from './services/user';
 
 let newRoutes = [];
 
-export const patchRoutes = routes => {
+export const patchRoutes = (routes = []) => {
   // 动态获取菜单后，添加404配置与component
   const addNotFoundAndComponent = routes => {
     for (let i = 0; i < routes.length; i++) {
@@ -30,21 +30,22 @@ export const patchRoutes = routes => {
     }
   };
   addNotFoundAndComponent(newRoutes);
+
   try {
     routes[1].routes[0].routes.unshift(...newRoutes);
   } catch (err) {
-    console.log('路由配置与预期不一致');
+    console.log('路由配置与预期不一致,请重新配置app.js中的动态路由');
   }
 };
 
 export const render = oldRender => {
   // 获取用户信息
   // 动态获取菜单
-  if (window.location.pathname.match('/user/login')) {
+  if (window.location.pathname.match('/account/login')) {
     oldRender();
   } else {
     queryCurrent().then(({ menu = [], user = null }) => {
-      user && sessionStorage.setItem('user', JSON.stringify(user));
+      user && sessionStorage.setItem('user', JSON.stringify(user)); // 存储用户信息
       newRoutes = menu;
       oldRender();
     });

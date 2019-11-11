@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet';
 import Link from 'umi/link';
 import React, { useEffect } from 'react';
 import { connect } from 'dva';
-import SelectLang from '@/components/SelectLang';
 import logo from '../assets/logo.svg';
 import styles from './UserLayout.less';
 import { clearUser } from '@/utils/utils';
@@ -27,7 +26,7 @@ const UserLayout = props => {
     breadcrumb,
     ...props,
   });
-  
+
   useEffect(() => {
     clearUser();
   }, []);
@@ -40,9 +39,6 @@ const UserLayout = props => {
       </Helmet>
 
       <div className={styles.container}>
-        <div className={styles.lang}>
-          <SelectLang />
-        </div>
         <div className={styles.content}>
           <div className={styles.top}>
             <div className={styles.header}>

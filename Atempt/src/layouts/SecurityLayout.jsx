@@ -8,6 +8,6 @@ export default ({ children }) => {
   if (token) {
     return <>{children}</>;
   } else {
-    return <Redirect to={`/user/login`}></Redirect>;
+    return <Redirect to={`/account/login`}></Redirect>;
   }
 };

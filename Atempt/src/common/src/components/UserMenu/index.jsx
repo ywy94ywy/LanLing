@@ -1,8 +1,8 @@
 import { Popover } from 'antd';
-import style from './index.less';
 import { Menu } from 'antd';
+import style from './index.less';
 
-export default ({ user = null, logout, systems = [] }) => {
+export default ({ user = null, logout = null, systems = [] }) => {
   return user ? (
     <span className={style.userMenu}>
       <Popover
@@ -12,7 +12,11 @@ export default ({ user = null, logout, systems = [] }) => {
             {systems.map((v, i) => {
               return <Menu.Item key={i}>{v.title}</Menu.Item>;
             })}
-            <Menu.Item>
+            <Menu.Item
+              onClick={() => {
+                logout && logout();
+              }}
+            >
               {/* <a
                 onClick={() => {
                   logout && logout();
