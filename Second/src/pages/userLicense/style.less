@@ -1,0 +1,78 @@
+.userLicense {
+  padding-bottom: 50px;
+  :global {
+    .ant-collapse {
+      background: none;
+      border: none;
+      .ant-collapse-item {
+        border-bottom: none;
+        .ant-collapse-header {
+          height: 64px;
+          line-height: 40px;
+        }
+      }
+      .ant-collapse-content {
+        overflow: visible;
+        background: none;
+        border-top: none;
+        .ant-collapse-content-box {
+          padding: 0;
+        }
+      }
+    }
+  }
+  .arrow {
+    margin-left: 8px;
+    > svg {
+      transition: all 0.3s;
+    }
+  }
+  .cardWrapper {
+    margin-right: 8px;
+    margin-bottom: 8px;
+    &:hover {
+      box-shadow: 0 0 13px #d9d9d9;
+    }
+    .cardContent {
+      width: 360px;
+      min-height: 132px;
+      padding: 6px;
+      border: none;
+      .icon {
+        margin-right: 20px;
+      }
+      .title {
+        width: 232px;
+        p:nth-of-type(1) {
+          font-size: 16px;
+          font-weight: bold;
+        }
+        p:nth-of-type(2) {
+          margin-top: 14px;
+        }
+      }
+      img {
+        width: 48px;
+        height: 48px;
+      }
+    }
+    .cardBottom {
+      width: 360px;
+      height: 48px;
+      background: #f7f9fa;
+      .btn {
+        text-align: center;
+        line-height: 48px;
+        &:nth-child(2n)::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          left: -1px;
+          height: 20px;
+          border-right: 1px solid #d9d9d9;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,116 @@
+@import '../../../styles/variables.less';
+
+.wrapper {
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  overflow: auto;
+  .header {
+    display: flex;
+    color: white;
+    .headerTheme {
+      flex: 0 0 150px;
+      .themeBtn {
+        margin-left: 37px;
+        cursor: pointer;
+        & > i {
+          margin-right: 5px;
+        }
+      }
+    }
+    .headerContent {
+      flex: 1;
+    }
+    .headerRight {
+      margin-left: auto;
+      margin-right: 20px;
+    }
+  }
+
+  // antd-pro-layout 样式自定义
+  :global {
+    // Layout
+    .ant-layout-header,
+    .ant-pro-global-header,
+    .ant-menu-dark,
+    .ant-pro-sider-menu-logo,
+    .ant-layout,
+    .ant-layout-sider,
+    .ant-menu-inline.ant-menu-sub {
+      background: transparent;
+    }
+
+    // Header
+    .ant-layout-header {
+      font-size: @layout-font-size;
+    }
+    .ant-pro-sider-menu-logo {
+      h1 {
+        font-size: 18px;
+        font-weight: normal;
+      }
+    }
+
+    // Content
+    .ant-pro-page-header-wrap-children-content {
+      margin: 20px 20px 0;
+    }
+    .ant-pro-basicLayout-content {
+      background: @content-background;
+      margin: 0;
+    }
+    .ant-pro-basicLayout-content.ant-pro-basicLayout-has-header {
+      padding-top: 0;
+    }
+    .ant-layout-content {
+      padding-bottom: 20px;
+      & > div {
+        margin: 0 !important;
+      }
+    }
+
+    // Menu
+    // 去除侧边栏右侧shadow
+    .ant-pro-sider-menu-sider {
+      box-shadow: none;
+    }
+    .ant-menu-root {
+      padding: 0 !important;
+      > .ant-menu-submenu {
+        // 最外层menu
+        > div.ant-menu-submenu-title {
+          background-color: rgba(255, 255, 255, 0.1);
+          height: 60px;
+          line-height: 60px;
+        }
+        // 父级层menu
+        .ant-menu-submenu-title {
+          background-color: rgba(0, 0, 0, 0.2);
+          height: 40px;
+          line-height: 40px;
+          margin-top: 0;
+          margin-bottom: 0;
+        }
+      }
+    }
+    // 选中与hover的menu
+    .ant-menu-dark .ant-menu-item:hover,
+    .ant-menu.ant-menu-dark .ant-menu-item-selected {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+    // menu字体大小
+    .ant-menu-submenu-title,
+    .ant-menu-item {
+      font-size: @layout-font-size;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    // 样式fix
+    .ant-menu-inline .ant-menu-item:not(:last-child) {
+      margin-bottom: 0;
+    }
+    .ant-menu-dark .ant-menu-inline.ant-menu-sub {
+      box-shadow: none;
+    }
+  }
+}

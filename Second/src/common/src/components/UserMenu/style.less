@@ -1,0 +1,45 @@
+@import '../../../styles/variables.less';
+
+.userMenu {
+  cursor: pointer;
+  .imgClip {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    overflow: hidden;
+    border-radius: 50%;
+    vertical-align: middle;
+    font-size: 0;
+    margin-top: -3px;
+    margin-right: 9px;
+    img {
+      width: inherit;
+      height: inherit;
+    }
+  }
+  .user {
+    color: @header-font-color;
+    font-size: @layout-font-size-sm;
+    transition: all 0.2s;
+    &:hover {
+      color: @header-font-hover-color;
+    }
+  }
+  :global {
+    .ant-popover-inner-content {
+      padding: 10px 16px;
+      .ant-menu {
+        border-right: none;
+      }
+      .ant-menu-vertical > .ant-menu-item {
+        padding: 0;
+        height: 30px;
+        line-height: 30px;
+        margin-bottom: 4px;
+        margin-top: 4px;
+        text-align: right;
+      }
+    }
+  }
+}

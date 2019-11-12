@@ -1,0 +1,46 @@
+@import '~@/common/styles/variables.less';
+
+@height: 600px;
+.userAccount {
+  .card {
+    min-height: @height;
+    .row {
+      min-height: @height;
+    }
+    .left {
+      width: 210px;
+      border-right: @border-menu;
+      box-sizing: border-box;
+    }
+    .right {
+      flex: 1;
+    }
+    :global {
+      .ant-card-body {
+        min-height: @height;
+        padding-left: 0;
+        .ant-menu {
+          border-right: none;
+          .ant-menu-item {
+            height: 50px;
+            line-height: 50px;
+          }
+        }
+      }
+    }
+  }
+  .management {
+    padding-left: 30px;
+    .manageCard {
+      height: 60px;
+      border-bottom: @border-normal;
+      margin-bottom: 20px;
+      &:first-of-type {
+        margin-top: 18px;
+      }
+      .strong {
+        color: @strong-color;
+      }
+    }
+  }
+}
