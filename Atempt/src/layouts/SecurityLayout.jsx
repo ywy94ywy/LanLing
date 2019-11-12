@@ -5,9 +5,10 @@ import { getCookie } from '@/utils/utils';
 export default ({ children }) => {
   const token = getCookie('sessionid');
 
-  if (token) {
-    return <>{children}</>;
-  } else {
-    return <Redirect to={`/account/login`}></Redirect>;
-  }
+  // if (token) {
+  //   return <>{children}</>;
+  // } else {
+  //   return <Redirect to={`/account/login`}></Redirect>;
+  // }
+  return 123
 };

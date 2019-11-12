@@ -34,6 +34,7 @@ export const getAuthorityFromRouter = (router = [], pathname) => {
   return undefined;
 };
 
+
 export const setCookie = (name, value, days = 0) => {
   const exp = new Date();
   exp.setTime(exp.getTime() + days * 24 * 60 * 60 * 1000);
@@ -54,13 +55,3 @@ export const getCookie = name => {
 export const clearCookie = name => {
   setCookie(name, '', -1);
 };
-
-export const getUser = () => {
-  const user = JSON.parse(sessionStorage.getItem('user') || null);
-  return user;
-};
-
-export const clearUser = () => {
-  sessionStorage.removeItem('user');
-};
-

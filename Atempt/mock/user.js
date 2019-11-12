@@ -1,5 +1,5 @@
 export default {
-  'Post /api/currentUser': (req, res) => {
+  'Post /api/userInfo': (req, res) => {
     res.send({
       user: {
         name: '贾亚军',
@@ -7,6 +7,11 @@ export default {
         userid: '00000001',
         post: '劳务管理员',
       },
+    });
+  },
+  
+  'Post /api/userAuthMenu': (req, res) => {
+    res.send({
       menu: [
         {
           path: '/main',

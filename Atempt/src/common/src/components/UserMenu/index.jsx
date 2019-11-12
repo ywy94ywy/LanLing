@@ -17,11 +17,6 @@ export default ({ user = null, logout = null, systems = [] }) => {
                 logout && logout();
               }}
             >
-              {/* <a
-                onClick={() => {
-                  logout && logout();
-                }}
-              > */}
               退出系统
             </Menu.Item>
           </Menu>

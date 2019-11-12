@@ -1,4 +1,4 @@
-import { queryCurrent } from './services/user';
+import { queryMenu } from './services/user';
 
 let newRoutes = [];
 
@@ -39,13 +39,11 @@ export const patchRoutes = (routes = []) => {
 };
 
 export const render = oldRender => {
-  // 获取用户信息
   // 动态获取菜单
   if (window.location.pathname.match('/account/login')) {
     oldRender();
   } else {
-    queryCurrent().then(({ menu = [], user = null }) => {
-      user && sessionStorage.setItem('user', JSON.stringify(user)); // 存储用户信息
+    queryMenu().then(({ menu = [] }) => {
       newRoutes = menu;
       oldRender();
     });

@@ -1,11 +1,16 @@
-import { BasicLayout, UserMenu } from '@/common/src';
-import { getUser } from '@/utils/utils';
-import logo from '@/assets/logo.png';
+import { useEffect } from 'react';
 import { connect } from 'dva';
+import { BasicLayout, UserMenu } from '@/common/src';
+import logo from '@/assets/logo.png';
 
-export default connect()(({ children, dispatch, ...rest }) => {
-  const user = getUser();
+export default connect(({ user }) => user)(({ children, dispatch, currentUser, ...rest }) => {
   const systems = [{ title: '前往通行证后台', url: '/' }];
+
+  useEffect(() => {
+    dispatch({
+      type: 'user/fetchUser',
+    });
+  }, []);
 
   const logout = () => {
     dispatch({
@@ -17,7 +22,7 @@ export default connect()(({ children, dispatch, ...rest }) => {
     <BasicLayout
       logo={logo}
       leftContent={<div>天气</div>}
-      rightContent={<UserMenu user={user} logout={logout} systems={systems}></UserMenu>}
+      rightContent={<UserMenu user={currentUser} logout={logout} systems={systems}></UserMenu>}
       {...rest}
     >
       {children}

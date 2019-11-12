@@ -1,11 +1,10 @@
 import { DefaultFooter, getMenuData, getPageTitle } from '@ant-design/pro-layout';
 import { Helmet } from 'react-helmet';
 import Link from 'umi/link';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'dva';
 import logo from '../assets/logo.svg';
 import styles from './UserLayout.less';
-import { clearUser } from '@/utils/utils';
 
 const UserLayout = props => {
   const {
@@ -26,10 +25,6 @@ const UserLayout = props => {
     breadcrumb,
     ...props,
   });
-
-  useEffect(() => {
-    clearUser();
-  }, []);
 
   return (
     <>
