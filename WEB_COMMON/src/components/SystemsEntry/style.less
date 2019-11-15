@@ -1,0 +1,20 @@
+@import '../../../styles/variables.less';
+
+.systems {
+  .tree {
+    margin-right: 10px;
+  }
+  .system {
+    color: @header-font-color;
+    cursor: pointer;
+    &:nth-of-type(n + 3) {
+      margin-left: 15px;
+    }
+    & > span {
+      margin-left: 5px;
+    }
+    &:hover {
+      color: @header-font-hover-color;
+    }
+  }
+}

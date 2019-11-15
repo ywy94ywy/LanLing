@@ -1,0 +1,47 @@
+@import '~lanling/styles/variables.less';
+
+.test {
+  color: red;
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    border-top: @border-normal;
+    width: 100%;
+    top: 45px;
+  }
+}
+.userInfo {
+}
+
+.userHeader {
+  .headLeft {
+    width: 445px;
+    padding-top: 30px;
+    padding-bottom: 26px;
+    margin-left: 50px;
+    p {
+      height: 42px;
+      line-height: 42px;
+    }
+  }
+  .headRight {
+    display: flex;
+    align-items: center;
+    .upload {
+      text-align: center;
+      .imgClip {
+        margin: 0 auto;
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-bottom: 20px;
+        img {
+          height: inherit;
+          width: inherit;
+        }
+      }
+    }
+  }
+}

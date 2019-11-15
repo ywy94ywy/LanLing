@@ -1,0 +1,20 @@
+@import '~lanling/styles/variables.less';
+
+.title {
+  text-align: center;
+  .withLine {
+    position: relative;
+    margin-bottom: 17px;
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 36px;
+      height: 4px;
+      background: @blue-1;
+      border-radius: 2px;
+    }
+  }
+}

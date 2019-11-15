@@ -1,0 +1,34 @@
+{
+  "name": "lanling",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "author": {
+    "name": "desyang"
+  },
+  "files": [
+    "dist",
+    "es",
+    "lib",
+    "setting",
+    "styles"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@ant-design/pro-layout": "^4.7.0",
+    "antd": "^3.25.1",
+    "classnames": "^2.2.6",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "umi": "^2.11.3"
+  },
+  "devDependencies": {
+    "babel-plugin-import": "^1.12.2",
+    "father": "^2.24.1",
+    "umi-plugin-react": "^1.13.3"
+  },
+  "scripts": {
+    "dev": "umi dev",
+    "build": "father build"
+  }
+}

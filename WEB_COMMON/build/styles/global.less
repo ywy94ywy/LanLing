@@ -1,0 +1,102 @@
+@import "./variables.less";
+
+body {
+  height: 100%;
+  min-width: 1366px;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC,
+    Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial,
+    sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+}
+p {
+  margin: 0;
+}
+:global {
+  .ant-card-body {
+    padding: 20px;
+  }
+  .ant-card-head {
+    padding-left: 20px;
+  }
+}
+
+h1 {
+  .h1;
+}
+
+h2 {
+  .h2;
+}
+
+h3 {
+  .h3;
+}
+
+h4 {
+  .h4;
+}
+
+h5 {
+  .h5;
+}
+
+h6 {
+  .h6;
+}
+
+.tlg1 {
+  font-size: @font-size-lg;
+  color: @black-2;
+}
+.tlg2 {
+  font-size: @font-size-lg;
+  color: @black-3;
+}
+.tlg3 {
+  font-size: @font-size-lg;
+  color: @black-4;
+}
+
+.tmd1 {
+  font-size: @font-size-md;
+  color: @black-2;
+}
+.tmd2 {
+  font-size: @font-size-md;
+  color: @black-3;
+}
+.tmd3 {
+  font-size: @font-size-md;
+  color: @black-4;
+}
+
+.tba1 {
+  font-size: @font-size-base;
+  color: @black-2;
+}
+.tba2 {
+  font-size: @font-size-base;
+  color: @black-3;
+}
+.tba3 {
+  font-size: @font-size-base;
+  color: @black-4;
+}
+
+.gap-middle {
+  flex: 1 1;
+}
+
+.gap-side {
+  flex: 2 2;
+}
+
+.breadcrum-line {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    border-top: @border-normal;
+    width: 100%;
+    top: 45px;
+  }
+}

@@ -1,0 +1,30 @@
+@import "../../../styles/variables.less";
+
+.userMenu {
+  cursor: pointer;
+  .user {
+    margin-left: 10px;
+    color: @header-font-color;
+    font-size: @layout-font-size-sm;
+    transition: all 0.2s;
+    &:hover {
+      color: @header-font-hover-color;
+    }
+  }
+  :global {
+    .ant-popover-inner-content {
+      padding: 10px 16px;
+      .ant-menu {
+        border-right: none;
+      }
+      .ant-menu-vertical > .ant-menu-item {
+        padding: 0;
+        height: 30px;
+        line-height: 30px;
+        margin-bottom: 4px;
+        margin-top: 4px;
+        text-align: right;
+      }
+    }
+  }
+}
