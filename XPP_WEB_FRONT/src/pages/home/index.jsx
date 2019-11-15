@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { Card, Col, Row, Typography } from 'antd';
+import { Card, Col, Row, Modal } from 'antd';
 import { PageHeaderWrapper } from '@ant-design/pro-layout';
 import ManualTitle from '@/components/ManualTitle';
 import style from './style.less';
@@ -36,6 +36,18 @@ const data = [
     content:
       '建筑工人在工地的作业安排及劳务计量系统。包含劳务作业计划、工作分配、作业资料查询、作业计量确认和验收。',
   },
+  {
+    title: '项目综合管理系统',
+    pic: pic2,
+    content:
+      '让项目的管理者在有限的资源约束下，对项目和项目集涉及的全部工作进行有效地管理。它从项目的投资决策开始到项目结束的全过程进行计划、组织、指挥、协调、控制和评价，以实现项目的目标，避免现有综合项目管理方法重复输入数据带来的弊端，一体化的项目管理运作，全方位宏观监管项目各项指标，提高了项目完成的工作效率，增加了企业效益。',
+  },
+  {
+    title: '监控管理系统',
+    pic: pic4,
+    content:
+      '针对建筑项目施工现场，监控应用场景多、覆盖范围广，监控点多且比较分散的特点，技术视频管理监控系统为建筑项目建设一套综合视频监控系统，覆盖施工作业、材料堆场、机械设备、办公区、等重点区域，集成塔吊操作室、塔吊吊钩、升降机机舱、深基坑、高支模、大体积混凝土、巡检巡查、公共安防、材料堆场等一系列视频监控体系，实现对建筑项目的全方位可视化管理和防控。',
+  },
 ];
 
 export default () => {
@@ -55,7 +67,17 @@ export default () => {
         </Row>
         <Row type="flex" className={style.servers}>
           <Col className="gap-side"></Col>
-          {data.slice(2).map((item, i) => (
+          {data.slice(2, 4).map((item, i) => (
+            <Fragment key={item.title}>
+              {i !== 0 && <Col style={{ flex: '1 1 25px' }}></Col>}
+              <Servers {...item} />
+            </Fragment>
+          ))}
+          <Col className="gap-side"></Col>
+        </Row>
+        <Row type="flex" className={style.servers}>
+          <Col className="gap-side"></Col>
+          {data.slice(4).map((item, i) => (
             <Fragment key={item.title}>
               {i !== 0 && <Col style={{ flex: '1 1 25px' }}></Col>}
               <Servers {...item} />

@@ -18,11 +18,10 @@ export default connect(({ user }) => user)(({ children, dispatch, currentUser, .
     });
   };
 
-  console.log(currentUser);
   return (
     <BasicLayout
       logo={logo}
-      leftContent={<div>天气</div>}
+      leftContent={<div></div>}
       rightContent={<UserMenu user={currentUser} logout={logout} systems={systems}></UserMenu>}
       // todo 无面包屑
       {...rest}

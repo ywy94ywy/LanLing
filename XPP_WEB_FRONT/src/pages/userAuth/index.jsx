@@ -1,5 +1,5 @@
 import { PageHeaderWrapper } from '@ant-design/pro-layout';
-import { Row, Col, Table, Button } from 'antd';
+import { Row, Col, Table, Button, Select } from 'antd';
 import { CardWithTitle } from 'lanling';
 import classnames from 'classnames';
 import style from './style.less';
@@ -33,12 +33,12 @@ export default () => {
       <div className={style.userAuth}>
         <CardWithTitle icon="iconskin" title="个人实名信息管理" className={style.wrapper1}>
           <div className={style.title}>
-            <h5>证件类型</h5>
             <Row type="flex" justify="space-between">
               <Col>
-                <p>
-                  <span>&nbsp;&nbsp;</span>居民身份证
-                </p>
+                <span style={{ marginRight: '10px' }}>证件类型</span>
+                <Select defaultValue="1">
+                  <Select.Option value="1">居民身份证</Select.Option>
+                </Select>
               </Col>
               <Col>
                 <Button type="primary">实名认证提交</Button>

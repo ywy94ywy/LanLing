@@ -10,14 +10,6 @@ body {
 p {
   margin: 0;
 }
-:global {
-  .ant-card-body {
-    padding: 20px;
-  }
-  .ant-card-head {
-    padding-left: 20px;
-  }
-}
 
 h1 {
   .h1;
@@ -90,7 +82,7 @@ h6 {
   flex: 2 2;
 }
 
-.breadcrum-line {
+.breadcrumb-line {
   position: relative;
   &::before {
     content: "";
@@ -99,4 +91,9 @@ h6 {
     width: 100%;
     top: 45px;
   }
+}
+
+// antd-fix
+.ant-calendar-picker{
+  width: 100%;
 }

@@ -56,6 +56,12 @@ export default {
               componentUrl: './pages/userAuth',
             },
             {
+              path: '/user/organization',
+              name: '用户组织管理',
+              iconfont: 'iconyonghurenzhengguanli',
+              componentUrl: './pages/userOrganization',
+            },
+            {
               path: '/user/license',
               name: '用户执照管理',
               iconfont: 'iconyonghuzhizhaoguanli',
