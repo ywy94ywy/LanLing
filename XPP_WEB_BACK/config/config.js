@@ -1,4 +1,5 @@
 import defaultSettings from './defaultSettings'; // https://umijs.org/config/
+
 import routes from './routes';
 import slash from 'slash2';
 import webpackPlugin from './plugin.config';
@@ -15,11 +16,11 @@ const plugins = [
       dva: {
         hmr: true,
       },
-      // dynamicImport: {
-      //   loadingComponent: './components/PageLoading/index',
-      //   webpackChunkName: true,
-      //   level: 3,
-      // },
+      dynamicImport: {
+        loadingComponent: './components/PageLoading/index',
+        webpackChunkName: true,
+        level: 3,
+      },
       pwa: pwa
         ? {
             workboxPluginMode: 'InjectManifest',
@@ -33,6 +34,7 @@ const plugins = [
       //   include: ['dva', 'dva/router', 'dva/saga', 'dva/fetch'],
       //   exclude: ['@babel/runtime', 'netlify-lambda'],
       // },
+      locale: true,
     },
   ],
   [
@@ -119,3 +121,4 @@ export default {
   },
   */
 };
+

@@ -18,7 +18,6 @@ export default connect(({ user }) => user)(({ children, dispatch, currentUser, .
     });
   };
 
-  console.log(currentUser);
   return (
     <BasicLayout
       logo={logo}
